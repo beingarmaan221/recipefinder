@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recipe Finder</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+  <header class="header">
+    <h1 class="logo">🍜 Recipe Finder</h1>
+    <form class="search" id="searchForm">
+      <input type="text" id="searchInput" placeholder="Search a meal... e.g. Laksa, Chicken" aria-label="Search meals">
+      <button type="submit" id="searchBtn">Search</button>
+    </form>
+  </header>
+
+  <main class="container">
+
+    <!-- TASK: API se meals laake yahan cards render karne hain.
+         Search API: https://www.themealdb.com/api/json/v1/1/search.php?s=QUERY -->
+    <p class="status" id="status">Showing results for "prawn"</p>
+
+    <section class="grid" id="mealsGrid">
+
+      <!-- ===== SAMPLE CARD (isi structure ko JS se repeat karna hai) ===== -->
+      <article class="card">
+        <img src="https://www.themealdb.com/images/media/meals/rvypwy1503069308.jpg" alt="Laksa King Prawn Noodles">
+        <div class="card-body">
+          <h3>Laksa King Prawn Noodles</h3>
+          <div class="badges">
+            <span class="badge">Seafood</span>
+            <span class="badge badge-alt">Malaysian</span>
+          </div>
+          <a href="#mealDetail" class="btn">View Recipe</a>
+        </div>
+      </article>
+      <!-- ===== /SAMPLE CARD ===== -->
+
+      <article class="card">
+        <img src="https://www.themealdb.com/images/media/meals/rvypwy1503069308.jpg" alt="Laksa King Prawn Noodles">
+        <div class="card-body">
+          <h3>Laksa King Prawn Noodles</h3>
+          <div class="badges">
+            <span class="badge">Seafood</span>
+            <span class="badge badge-alt">Malaysian</span>
+          </div>
+          <a href="#mealDetail" class="btn">View Recipe</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="https://www.themealdb.com/images/media/meals/rvypwy1503069308.jpg" alt="Laksa King Prawn Noodles">
+        <div class="card-body">
+          <h3>Laksa King Prawn Noodles</h3>
+          <div class="badges">
+            <span class="badge">Seafood</span>
+            <span class="badge badge-alt">Malaysian</span>
+          </div>
+          <a href="#mealDetail" class="btn">View Recipe</a>
+        </div>
+      </article>
+
+    </section>
+  </main>
+
+  <!-- ===== DETAIL MODAL =====
+       TASK: card click pe is modal me selected meal ka data bharna hai.
+       Lookup API: https://www.themealdb.com/api/json/v1/1/lookup.php?i=ID
+       Ingredients: strIngredient1..20 + strMeasure1..20 (khaali wale skip karo) -->
+  <div class="modal" id="mealDetail">
+    <a href="#" class="modal-backdrop" aria-label="Close"></a>
+    <div class="modal-content">
+      <a href="#" class="close" aria-label="Close">&times;</a>
+
+      <img id="detailImg" src="https://www.themealdb.com/images/media/meals/rvypwy1503069308.jpg" alt="Laksa King Prawn Noodles">
+
+      <div class="modal-body">
+        <h2 id="detailTitle">Laksa King Prawn Noodles</h2>
+
+        <div class="badges" id="detailBadges">
+          <span class="badge">Seafood</span>
+          <span class="badge badge-alt">Malaysian</span>
+          <span class="tag">#Shellfish</span>
+          <span class="tag">#Seafood</span>
+        </div>
+
+        <h4>Ingredients</h4>
+        <ul class="ingredients" id="detailIngredients">
+          <li>Olive Oil</li>
+          <li>Red Chilli</li>
+          <li>Thai red curry paste</li>
+          <li>Vegetable stock cube</li>
+          <li>Coconut milk</li>
+          <li>Fish sauce</li>
+          <li>Rice noodles</li>
+          <li>Lime</li>
+          <li>King prawns</li>
+          <li>Coriander</li>
+        </ul>
+
+        <h4>Instructions</h4>
+        <p class="instructions" id="detailInstructions">Heat the oil in a medium saucepan and add the chilli. Cook for 1 min, then add the curry paste, stir and cook for 1 min more. Dissolve the stock cube in a large jug in 700ml boiling water, then pour into the pan and stir to combine. Tip in the coconut milk and bring to the boil.
+Add the fish sauce and a little seasoning. Toss in the noodles and cook for a further 3-4 mins until softening. Squeeze in the lime juice, add the prawns and cook through until warm, about 2-3 mins. Scatter over some of the coriander.
+Serve in bowls with the remaining coriander and lime wedges on top for squeezing over.</p>
+
+        <a id="detailYoutube" href="https://www.youtube.com/watch?v=OcarztU8cYo" target="_blank" rel="noopener" class="btn btn-yt">▶ Watch on YouTube</a>
+      </div>
+    </div>
+  </div>
+
+
+
+  <script src="index.js"></script>
+</body>
+</html>

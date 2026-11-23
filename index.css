@@ -1,0 +1,154 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --primary: #e85d04;
+  --primary-dark: #c44d00;
+  --bg: #fdf6ee;
+  --card: #fff;
+  --text: #2b2118;
+  --muted: #7a6a5c;
+  --radius: 14px;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+/* Header */
+.header {
+  background: var(--primary);
+  color: #fff;
+  padding: 24px 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo { font-size: 1.6rem; }
+
+.search { display: flex; flex: 1; max-width: 480px; min-width: 260px; }
+.search input {
+  flex: 1;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 30px 0 0 30px;
+  font-size: 1rem;
+  outline: none;
+}
+.search button {
+  padding: 12px 22px;
+  border: none;
+  border-radius: 0 30px 30px 0;
+  background: var(--text);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+.search button:hover { background: #000; }
+
+/* Layout */
+.container { max-width: 1200px; margin: 0 auto; padding: 24px 16px; }
+.status { color: var(--muted); margin-bottom: 16px; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 22px;
+}
+
+/* Card */
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0,0,0,.08);
+  transition: transform .2s, box-shadow .2s;
+  display: flex;
+  flex-direction: column;
+}
+.card:hover { transform: translateY(-4px); box-shadow: 0 10px 24px rgba(0,0,0,.14); }
+.card img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+.card-body { padding: 14px 16px 18px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+.card-body h3 { font-size: 1.1rem; }
+.card-body .btn { margin-top: auto; }
+
+/* Badges */
+.badges { display: flex; flex-wrap: wrap; gap: 6px; }
+.badge {
+  background: #ffe8d6;
+  color: var(--primary-dark);
+  font-size: .78rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+.badge-alt { background: #e3f2e1; color: #2d6a2d; }
+.tag { font-size: .78rem; color: var(--muted); padding: 3px 4px; }
+
+/* Button */
+.btn {
+  display: inline-block;
+  text-align: center;
+  background: var(--primary);
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+.btn:hover { background: var(--primary-dark); }
+.btn-yt { background: #e62117; margin-top: 20px; }
+.btn-yt:hover { background: #b3150e; }
+
+/* Modal (CSS :target se open hota hai — student chahe to JS class toggle use kare) */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  z-index: 10;
+}
+.modal:target, .modal.open { display: flex; }
+.modal-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,.6); }
+.modal-content {
+  position: relative;
+  background: var(--card);
+  border-radius: var(--radius);
+  max-width: 720px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+.modal-content > img { width: 100%; max-height: 320px; object-fit: cover; display: block; }
+.modal-body { padding: 22px 24px 28px; }
+.modal-body h2 { margin-bottom: 10px; }
+.modal-body h4 { margin: 22px 0 8px; color: var(--primary-dark); }
+
+.close {
+  position: absolute;
+  top: 10px; right: 14px;
+  width: 36px; height: 36px;
+  display: grid; place-items: center;
+  background: #fff;
+  color: var(--text);
+  border-radius: 50%;
+  font-size: 1.5rem;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,.2);
+}
+
+.ingredients {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 6px;
+}
+.ingredients li::before { content: "✓ "; color: var(--primary); font-weight: 700; }
+
+.instructions { white-space: pre-line; color: #4a3e33; }
